@@ -1,10 +1,10 @@
+## Node related ignores
+
 node_modules/
 dist/
 .turbo/
 
 */**/routeTree.gen.ts
-
-pnpm-lock.yaml
 
 examples/playground/
 

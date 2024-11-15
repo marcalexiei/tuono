@@ -17,27 +17,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Install NodeJS Dependencies
+        uses: .github/actions/install-node-dependencies
 
       - name: Setup rust
         uses: actions-rust-lang/setup-rust-toolchain@v1
 
       - name: Install tuono
         run: cargo install tuono@0.10.4
-
-      - name: Install pnpm
-        run: npm i -g pnpm
-
-      - name: Install dependencies
-        run: pnpm install
 
       - name: Build project
         working-directory: ./apps/documentation
@@ -49,16 +39,11 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
-      - name: Install pnpm
-        run: npm i -g pnpm
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install NodeJS Dependencies
+        uses: .github/actions/install-node-dependencies
 
       - name: Check formatting
         run: pnpm docs:format:check
