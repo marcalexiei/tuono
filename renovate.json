@@ -9,7 +9,8 @@
         "eslint",
         "eslint-*",
         "typescript-eslint",
-        "@eslint/**"
+        "@eslint/**",
+        "asd"
       ],
       "groupName": "devDependencies (eslint)"
     }
